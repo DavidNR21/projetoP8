@@ -1,35 +1,13 @@
 
 export const Config = {
-    baseURL: 'https://api.cloudfilmes.com',
-    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25vbWUiOiJ0ZXN0ZSIsImV4cCI6MTcyNTU4MzcyNSwiZGlhcyI6InRlc3RlQCIsInNlbmhhIjoiMTIzNCIsInBlcm1pc3NvZXMiOiJhbGwifQ.rj5rcj4Smm59FreUVZ1wgi-7oHnj39DjHWEUoxqq6sY",
-}
-
-export const buscar_token = async () => {
-  try {
-    const response = await fetch(`${Config.baseURL}/token`, {
-      method: 'GET'
-      })
-      const json = await response.json();
-      //console.log(json.results)
-      const status = response.status;
-
-      return {success: true, data: json.results, status: status};
-
-  } catch (error) {
-    console.log(error);
-    return {success: false, data: error};
-  }
+    baseURL: 'http://127.0.0.1:5000'
 }
 
 
-
-export const buscar_animes = async (token) => {
+export const buscar_animes = async () => {
     try {
       const response = await fetch(`${Config.baseURL}/anime/`, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Token ${token}`
-        }
+        method: 'GET'
         })
         const json = await response.json();
         //console.log(json.results)
@@ -44,13 +22,10 @@ export const buscar_animes = async (token) => {
 };
 
 
-export const buscar_animes_andamento = async (token) => {
+export const buscar_animes_andamento = async () => {
   try {
     const response = await fetch(`${Config.baseURL}/episodio/releaseEp`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Token ${token}`
-      }
+      method: 'GET'
       })
       const json = await response.json();
       //console.log(json.results)
@@ -65,13 +40,10 @@ export const buscar_animes_andamento = async (token) => {
 };
 
 
-export const buscar_animes_release = async (token) => {
+export const buscar_animes_release = async () => {
   try {
     const response = await fetch(`${Config.baseURL}/anime/?order_by=-releaseDate`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Token ${token}`
-      }
+      method: 'GET'
       })
       const json = await response.json();
       //console.log(json.results)
@@ -85,13 +57,10 @@ export const buscar_animes_release = async (token) => {
   }
 };
 
-export const buscar_generos = async (token) => {
+export const buscar_generos = async () => {
   try {
     const response = await fetch(`${Config.baseURL}/genero/`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Token ${token}`
-      }
+      method: 'GET'
       })
       const json = await response.json();
       //console.log(json.results)

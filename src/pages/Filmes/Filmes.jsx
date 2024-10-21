@@ -17,11 +17,7 @@ function Filmes (){
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://api.cloudfilmes.com/filme/?pag=${offset}`, {
-                    headers: {
-                        Authorization: `Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25vbWUiOiJhZG1pbiIsImV4cCI6MTc1MjkzNjQ2OSwiZGlhcyI6MzY1LCJzZW5oYSI6ImFkbWluIiwicGVybWlzc29lcyI6ImFsbCJ9.qutMEFpS1UY6jrZnJpGysxr10cg9GUMY4cmS2BdJvtY`,
-                    },
-                });
+                const response = await axios.get(`http://127.0.0.1:5000/filme/?pag=${offset}`);
 
                 setDatas(response.data.results)
 
