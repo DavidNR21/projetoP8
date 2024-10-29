@@ -75,3 +75,43 @@ export const buscar_generos = async () => {
 }
 
 
+export const buscar_info_animes = async (token, n) => {
+  try {
+    const response = await fetch(`${Config.baseURL}/anime/?filter=name_${n}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Token ${token}`
+      }
+      })
+      const json = await response.json();
+      //console.log(json.results)
+      const status = response.status;
+
+      return {success: true, data: json.results, status: status};
+
+  } catch (error) {
+    console.log(error);
+    return {success: false, data: error};
+  }
+}
+
+export const buscar_info_filme = async (token, f) => {
+  try {
+    const response = await fetch(`${Config.baseURL}/filme/?filter=name_${f}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Token ${token}`
+      }
+      })
+      const json = await response.json();
+      //console.log(json.results)
+      const status = response.status;
+
+      return {success: true, data: json.results, status: status};
+
+  } catch (error) {
+    console.log(error);
+    return {success: false, data: error};
+  }
+}
+

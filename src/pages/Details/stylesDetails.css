@@ -1,0 +1,195 @@
+
+/* Estilo da página de detalhes */
+.ctn-details {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /*align-items: center;*/
+}
+
+/* Estilo da div que contém a imagem de fundo */
+.div-img-details {
+    position: relative;
+    width: 100%;
+    height: 368px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Imagem de fundo */
+.back-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Overlay escuro com gradiente aplicado à imagem */
+.overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Botão de voltar no canto superior esquerdo */
+.back-button-div {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+    background-color: #1c1c1c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+
+.back-button-div i {
+    margin-right: 10px;
+}
+
+
+/* Estilo do conteúdo que vai ficar sobre a imagem */
+.details-content {
+    width: 100%;
+    height: 340px;
+    position: absolute;
+    z-index: 3;
+    top: 90px;
+    /*border: 1px solid #fff;*/
+    display: flex;
+    flex-direction: row;
+}
+
+.poster-img {
+    width: 246px;
+    height: 340px;
+    border-radius: 8px;
+    margin-left: 25px;
+}
+
+.ctn-infos-anime-vt {
+    width: calc(100% - 350px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilo do nome do anime */
+.name-anime {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 34px;
+    font-weight: 600;
+    margin-left: 25px;
+    line-height: 1.2;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Estilo das informações (p) */
+.ctn-infos-anime-vt p {
+    color: #a9a9a9;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 8px;
+    margin-left: 25px;
+    line-height: 1.4;
+}
+
+/* Destaque para valores importantes, como o número de temporadas, avaliações e gêneros */
+.ctn-infos-anime-vt p span {
+    color: #a9a9a9; 
+    font-weight: 600;
+}
+
+.ctn-sinopse {
+    width: 98%;
+    margin-top: 85px;
+    display: flex;
+    /*border: 1px solid red;*/
+}
+
+.div-sinopse {
+    padding: 15px;
+    background-color: #1A282D;
+    border-radius: 8px;
+    margin-left: 20px;
+    color: #ccc;
+    max-width: 87%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.div-sinopse h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.synopsis-text {
+    margin: 10px 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow: hidden;
+    color: #b0b0b0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ctn-dropdown {
+    /*height: 400px;*/
+    width: 100%;
+    /*border: 1px solid green;*/
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.drop-div-hz {
+    width: 35%;
+    margin-top: 25px;
+    margin-left: 20px;
+    /*border: 1px solid red;*/
+}
+
+.ctn-eps {
+    margin-top: 25px;
+    width: 100%;
+}
+
+.ctn-eps-empty {
+    height: 350px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.hs-relacionados{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 320px;
+    /*border: 1px solid red;*/
+}

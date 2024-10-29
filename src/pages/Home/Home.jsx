@@ -6,6 +6,7 @@ import FormSugestao from '../../components/FormSugestao/FormSugestao'
 import FooterCustom from '../../components/FooterCustom/FooterCustom'
 import CardDestaque from '../../components/CardDestaque/CardDestaque'
 import { buscar_animes, buscar_animes_andamento, buscar_animes_release } from '../../services/Api'
+import Loading from '../../components/Loading/Loading'
 
 
 function Home (){
@@ -34,6 +35,8 @@ function Home (){
             setColections(anime_api.data)
             setAndamento(andamento_api.data)
             setRelease(release_api.data)
+
+            setIsLoading(false)
     
         } catch (error) {
             console.log("Erro ao buscar dados:", error)
@@ -49,8 +52,9 @@ function Home (){
     return(
         <>
             {
-                !isLoading ? (
+                isLoading ? (
                     <>
+                        <Loading />
                     </>
                 ) : (
                     <div className="home">

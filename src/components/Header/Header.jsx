@@ -11,7 +11,7 @@ function Header() {
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             console.log('Buscar:', searchText)
-            navigation(`Search/?q=${searchText}`)
+            navigation(`/Search/?q=${searchText}`)
         }
     };
 
@@ -67,7 +67,7 @@ function Header() {
                     <div className='dropdown-link' onClick={() => navigation(`/Filmes`)}>Filmes</div>
                     <div className='dropdown-link' onClick={() => navigation(`/Animes`)}>Animes</div>
                     <div className='dropdown-link' onClick={() => navigation(`/Generos`)}>Gêneros</div>
-                    <div className='dropdown-link' onClick={() => navigation(`/Search`)}>Busca</div>
+                    <div className='dropdown-link' onClick={() => navigation(`/Search/?q=null`)}>Busca</div>
                 </div>
             )}
         </div>
@@ -75,4 +75,3 @@ function Header() {
 }
 
 export default Header;
-

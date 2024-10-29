@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useRef, useState } from 'react';
 import './stylesHorizontal.css';
+import { useNavigate } from 'react-router-dom';
 
 const HorizontalScroll = ({ items, type }) => {
-
-    const scrollContainerRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+  const scrollContainerRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const navigation = useNavigate()
 
   const handleMouseDown = (e) => {
     e.preventDefault(); // Previne comportamento padrão ao clicar
@@ -54,6 +55,15 @@ const HorizontalScroll = ({ items, type }) => {
     }
   };
 
+  const details = (i) => {
+    if (type === "relacionados"){
+      navigation(`?name=${i}`)
+      return 'ok'
+    }
+    navigation(`Details/?name=${i}`)
+  }
+
+
   return (
     <div
       className="scroll-container-pc"
@@ -70,7 +80,7 @@ const HorizontalScroll = ({ items, type }) => {
       onTouchEnd={handleTouchEnd}
     >
       {items.map((item, index) => (
-        <div className="scroll-item-pc" key={index} onClick={() => console.log(item.name)}>
+        <div className="scroll-item-pc" key={index} onClick={() => details(item.name)}>
           <img src={type === "andamento" ? item.info[0].poster : item.poster} alt={item.id} className="img-poster-pc"/>
           {
             type === "andamento" && (
@@ -86,4 +96,3 @@ const HorizontalScroll = ({ items, type }) => {
 };
 
 export default HorizontalScroll;
-

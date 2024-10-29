@@ -4,6 +4,8 @@ import Header from '../../components/Header/Header'
 import axios from 'axios';
 import PaginationComponent from '../../components/PaginationComponent/PaginationComponent';
 import FooterCustom from '../../components/FooterCustom/FooterCustom';
+import { useNavigate } from 'react-router-dom';
+import Loading from '../../components/Loading/Loading';
 
 
 function Animes (){
@@ -12,6 +14,7 @@ function Animes (){
     const [isLoading, setIsLoading] = useState(true)
     const [offset, setOffset] = useState(1)
     const [total, setTotal] = useState(8)
+    const navigation = useNavigate()
 
 
     useEffect(() => {
@@ -24,6 +27,7 @@ function Animes (){
                 if (response.data.results[0].id > 160){
                     setTotal(Math.trunc(response.data.results[0].id / 20))
                 }
+                setIsLoading(false)
 
             } catch (error) {
                 console.error('Erro ao buscar dados:', error);
@@ -37,8 +41,9 @@ function Animes (){
     return(
         <>
             {
-                !isLoading ? (
+                isLoading ? (
                     <>
+                        <Loading />
                     </>
                 ) : (
                     <div className="ctn-animes">
@@ -46,7 +51,7 @@ function Animes (){
 
                         <div className="anime-list-hz">
                             {datas.map((anime) => (
-                                <div key={anime.id} className="anime-item-div" onClick={() => console.log(offset)}>
+                                <div key={anime.id} className="anime-item-div" onClick={() => navigation(`/Details/?name=${anime.name}`)}>
                                     <img src={anime.poster} alt={anime.name} />
                                 </div>
                             ))}

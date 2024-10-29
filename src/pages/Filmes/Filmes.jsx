@@ -4,6 +4,8 @@ import Header from '../../components/Header/Header'
 import axios from 'axios';
 import PaginationComponent from '../../components/PaginationComponent/PaginationComponent';
 import FooterCustom from '../../components/FooterCustom/FooterCustom';
+import { useNavigate } from 'react-router-dom';
+import Loading from '../../components/Loading/Loading';
 
 
 function Filmes (){
@@ -12,6 +14,8 @@ function Filmes (){
     const [isLoading, setIsLoading] = useState(true)
     const [offset, setOffset] = useState(1)
     const [total, setTotal] = useState(8)
+    const navigation = useNavigate()
+
 
 
     useEffect(() => {
@@ -22,6 +26,8 @@ function Filmes (){
                 setDatas(response.data.results)
 
                 setTotal(Math.trunc(response.data.results[0].id / 20))
+
+                setIsLoading(false)
 
             } catch (error) {
                 console.error('Erro ao buscar dados:', error);
@@ -35,8 +41,9 @@ function Filmes (){
     return(
         <>
             {
-                !isLoading ? (
+                isLoading ? (
                     <>
+                        <Loading />
                     </>
                 ) : (
                     <div className="ctn-filmes">
@@ -44,7 +51,7 @@ function Filmes (){
 
                         <div className="anime-list">
                             {datas.map((anime) => (
-                                <div key={anime.id} className="anime-item" onClick={() => console.log(offset)}>
+                                <div key={anime.id} className="anime-item" onClick={() => navigation(`/Details/?name=${anime.name}&type=filme`)}>
                                     <img src={anime.poster} alt={anime.name} />
                                 </div>
                             ))}
