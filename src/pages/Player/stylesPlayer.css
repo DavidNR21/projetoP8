@@ -1,0 +1,21 @@
+.player-ctn {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+    overflow: hidden; /* Garante que nada ultrapasse o contêiner */
+}
+
+.plyt {
+    width: 100%;
+    max-width: 90vw; /* Limita a largura para ocupar até 90% da largura da viewport */
+    max-height: 90vh; /* Limita a altura para ocupar até 90% da altura da viewport */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -115,3 +115,20 @@ export const buscar_info_filme = async (token, f) => {
   }
 }
 
+export const buscar_relacionados = async (g) => {
+  try {
+    const response = await fetch(`${Config.baseURL}/anime/?filter=genres_${g}`, {
+      method: 'GET'
+      })
+      const json = await response.json();
+      //console.log(json.results)
+      const status = response.status;
+
+      return {success: true, data: json.results, status: status};
+
+  } catch (error) {
+    console.log(error);
+    return {success: false, data: error};
+  }
+}
+

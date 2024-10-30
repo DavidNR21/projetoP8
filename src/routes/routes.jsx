@@ -4,7 +4,7 @@ import Filmes from "../pages/Filmes/Filmes"
 import Animes from "../pages/Animes/Animes"
 import Search from "../pages/Search/Search"
 import Details from "../pages/Details/Details"
-
+import Player from "../pages/Player/Player"
 
 function AppRoutes() {
     return (
@@ -15,6 +15,7 @@ function AppRoutes() {
                 <Route path="/Animes" element = { <Animes /> } />
                 <Route path="/Search/"  element = { <Search /> }/>
                 <Route path="/Details/"  element = { <Details /> }/>
+                <Route path="/Player/"  element = { <Player/> }/>
             </Routes>
         </BrowserRouter>
     )
