@@ -6,6 +6,7 @@ import {
 	useState,
 } from 'react';
 import { VideoControls } from './VideoControls';
+import "./stylesVideo.css"
 
 
 export const VideoPlayer = ({ src }) => {
@@ -96,7 +97,7 @@ export const VideoPlayer = ({ src }) => {
 	}, []);
 
 	return (
-		<div className='relative border shadow-2xl shadow-black rounded-md overflow-hidden w-[900px] h-[500px] drop-shadow-sm group'>
+		<div className='relative border shadow-2xl shadow-black rounded-md w-full h-full overflow-hidden drop-shadow-sm group'>
 			<video
 				src={src}
 				className='w-full h-full object-cover'
