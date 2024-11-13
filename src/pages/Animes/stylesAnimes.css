@@ -1,0 +1,62 @@
+.ctn-animes{
+    width: 100%;
+    height: 100vh;
+}
+
+.anime-list-hz {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.anime-item-div {
+    width: 100%;
+    padding-bottom: 140%; /* Isso cria um quadrado baseado na largura do item */
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Adiciona a transição suave */
+}
+
+.anime-item-div:hover {
+    transform: translateY(-10px); /* Eleva o item ao passar o mouse */
+}
+
+.anime-item-div img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+@media (max-width: 768px) {
+    .anime-list-hz {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .anime-item-div {
+        padding-bottom: 150%;
+    }
+}
+
+@media (max-width: 480px) {
+    .anime-list-hz {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .anime-item-div {
+        padding-bottom: 160%;
+    }
+}
+
+
