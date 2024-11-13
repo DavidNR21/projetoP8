@@ -4,6 +4,8 @@ from models.models import *
 from routes.filmes.filmes_routes import filme_bp
 from routes.animes.animes_routes import anime_bp
 from routes.episodios.episodios_routes import episodio_bp
+from routes.comentarios.comentarios_routes import comentario_bp
+from routes.favoritos.favoritos_routes import favorito_bp
 import datetime
 
 
@@ -18,8 +20,14 @@ CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 app.register_blueprint(filme_bp, url_prefix = "/filme") # v1
 app.register_blueprint(anime_bp, url_prefix = "/anime") # v1
 app.register_blueprint(episodio_bp, url_prefix = "/episodio") # v1
+app.register_blueprint(comentario_bp, url_prefix="/comentario")
+app.register_blueprint(favorito_bp, url_prefix=("/favoritos"))
 
-
+# IMprimi as rotas registradas
+print("Rotas registradas:")
+for rule in app.url_map.iter_rules():
+    print(rule)
+    
 #################################################
 
 @app.route('/date')
@@ -41,4 +49,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
