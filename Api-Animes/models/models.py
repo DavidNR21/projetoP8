@@ -101,9 +101,9 @@ class Comentario (BaseModel):
 class Favorito(BaseModel):
     id = AutoField(primary_key=True)
     media_id = IntegerField()
+    nome_media = CharField(max_length=255)
     tipo = CharField(max_length=100)
     usuario = CharField(max_length=100)
-    texto = TextField()
     criadoEm = DateTimeField(constraints=[SQL('DEFAULT CURRENT_TIMESTAMP')])
 
 
@@ -111,9 +111,9 @@ def to_json(self):
     return {
         "id": self.id,
         "media_id": self.media_id,
+        "nome_media": self.nome_media,
         "tipo": self.tipo,
         "usuario": self.usuario,
-        "texto": self.texto, #if self.texto else "",
         "criadoEm": self.criadoEm.isoformat() if self.criadoEm else None
     }
 
