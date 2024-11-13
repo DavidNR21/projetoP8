@@ -1,4 +1,5 @@
 from peewee import *
+from datetime import datetime
 import uuid
 import json
 
@@ -79,9 +80,45 @@ class Episodios(BaseModel):
 
         return json.dumps(data)
 
+class Comentario (BaseModel):
+    id = AutoField(primary_key = True)
+    media_id = IntegerField() #Id do anime ou do filme
+    tipo = CharField(max_length = 100)
+    usuario = CharField(max_length = 100)
+    texto = TextField()
+    criadoEm = DateTimeField(default=datetime.utcnow)
+
+    def to_json(self):
+        return json.dumps({
+            "id": self.id,
+            "media_id": self.media_id,
+            "tipo": self.tipo,
+            "usuario": self.usuario,
+            "texto": self.texto,
+            "criadoEm": self.criadoEm.isoformat()
+        })
+
+class Favorito(BaseModel):
+    id = AutoField(primary_key=True)
+    media_id = IntegerField()
+    tipo = CharField(max_length=100)
+    usuario = CharField(max_length=100)
+    texto = TextField()
+    criadoEm = DateTimeField(constraints=[SQL('DEFAULT CURRENT_TIMESTAMP')])
 
 
+def to_json(self):
+    return {
+        "id": self.id,
+        "media_id": self.media_id,
+        "tipo": self.tipo,
+        "usuario": self.usuario,
+        "texto": self.texto, #if self.texto else "",
+        "criadoEm": self.criadoEm.isoformat() if self.criadoEm else None
+    }
+
+    
 db.connect()
-db.create_tables([Animes, Filmes, Episodios])
+db.create_tables([Animes, Filmes, Episodios, Comentario, Favorito])
 db.close()
 
