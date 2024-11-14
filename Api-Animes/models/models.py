@@ -4,7 +4,7 @@ import uuid
 import json
 
 
-db = PostgresqlDatabase('senpaiAnimes',port=5432,user='postgres',password='123456')
+db = PostgresqlDatabase('senpaiAnimes',port=5432,user='postgres',password='mk875')
 
 
 class BaseModel(Model):
@@ -121,4 +121,3 @@ def to_json(self):
 db.connect()
 db.create_tables([Animes, Filmes, Episodios, Comentario, Favorito])
 db.close()
-
