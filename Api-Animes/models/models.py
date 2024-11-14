@@ -98,6 +98,13 @@ class Comentario (BaseModel):
             "criadoEm": self.criadoEm.isoformat()
         })
 
+
+class Generos(BaseModel):
+    id = AutoField()
+    active = BooleanField()
+    titulo = CharField(max_length=100)
+
+
 class Favorito(BaseModel):
     id = AutoField(primary_key=True)
     media_id = IntegerField()
@@ -119,5 +126,5 @@ def to_json(self):
 
     
 db.connect()
-db.create_tables([Animes, Filmes, Episodios, Comentario, Favorito])
+db.create_tables([Animes, Filmes, Episodios, Comentario, Favorito, Generos])
 db.close()

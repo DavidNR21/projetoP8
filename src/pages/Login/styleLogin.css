@@ -1,15 +1,4 @@
-/* Estilização geral da página */
-body {
-    background-color: #121212; /* Fundo preto */
-    color: #E0E0E0; /* Texto cinza claro */
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
+
   /* Container da caixa de login */
   .login-container {
     display: flex;
