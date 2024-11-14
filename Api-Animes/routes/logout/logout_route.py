@@ -1,6 +1,9 @@
 from flask import Blueprint, jsonify, session
+from flask_cors import CORS
+
 
 logout_bp = Blueprint('logout', __name__)
+CORS(logout_bp)
 
 @logout_bp.route('/logout', methods=["POST"])
 def logout():
