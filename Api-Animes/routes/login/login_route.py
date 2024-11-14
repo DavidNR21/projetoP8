@@ -1,7 +1,10 @@
 from flask import Blueprint, request, jsonify
 from models.models import Usuario
+from flask_cors import CORS
+
 
 login_bp = Blueprint('login', __name__)
+CORS(login_bp)
 
 @login_bp.route('/login', methods=['POST'])
 def login():
