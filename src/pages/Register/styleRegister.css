@@ -1,0 +1,77 @@
+/* Estilização geral da página */
+body {
+  background-color: #121212; /* Fundo preto */
+  color: #E0E0E0; /* Texto cinza claro */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container do formulário de registro */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Card de registro */
+.register-card {
+  background-color: #1E1E1E; /* Fundo escuro da caixa */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Título de registro */
+.register-title {
+  color: #BB86FC; /* Roxo */
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilização dos inputs de registro */
+.register-input {
+  background-color: #2C2C2C;
+  border: 1px solid #BB86FC;
+  color: #E0E0E0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register-input::placeholder {
+  color: #A0A0A0; /* Placeholder cinza claro */
+}
+
+/* Botão de registro */
+.register-button {
+  background-color: #BB86FC;
+  color: #121212;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
+  width: 100%;
+}
+
+.register-button:hover {
+  background-color: #9a4bfc; /* Tom de roxo mais escuro ao passar o mouse */
+}
+
+/* Mensagem de erro de registro */
+.register-error-message {
+  color: #CF6679; /* Vermelho claro */
+  margin-top: 1rem;
+  font-size: 14px;
+}
