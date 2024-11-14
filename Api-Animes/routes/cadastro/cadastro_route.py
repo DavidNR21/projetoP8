@@ -1,9 +1,11 @@
+from flask_cors import CORS
 from flask import Blueprint, request, jsonify
 from models.models import Usuario
 from werkzeug.security import generate_password_hash
 import bcrypt  # certifique-se de que bcrypt está importado
 
 cadastro_bp = Blueprint('cadastro', __name__)
+CORS(cadastro_bp)
 
 
 @cadastro_bp.route('/cadastro', methods=['POST'])
