@@ -2,6 +2,8 @@ from peewee import *
 from datetime import datetime
 import uuid
 import json
+import hashlib
+import bcrypt
 
 
 db = PostgresqlDatabase('senpaiAnimes',port=5432,user='postgres',password='mk875')
@@ -124,7 +126,23 @@ def to_json(self):
         "criadoEm": self.criadoEm.isoformat() if self.criadoEm else None
     }
 
-    
+
+class Usuario(BaseModel):
+    email = CharField(unique=True)
+    nome = CharField()
+    senha = CharField()  # Alterado para simplificar o nome do campo
+
+    # Função para definir a senha com hash bcrypt
+    def set_password(self, password):
+        salt = bcrypt.gensalt()
+        self.senha = bcrypt.hashpw(
+            password.encode('utf-8'), salt).decode('utf-8')
+
+    # Função para verificar a senha usando bcrypt
+    def check_password(self, password):
+        return bcrypt.checkpw(password.encode('utf-8'), self.senha.encode('utf-8'))
+
+
 db.connect()
-db.create_tables([Animes, Filmes, Episodios, Comentario, Favorito, Generos])
+db.create_tables([Animes, Filmes, Episodios, Comentario, Favorito])
 db.close()
